@@ -10,11 +10,19 @@ public class DemoWebShopTest extends Base{
 
 
     @Test
-    @Parameterized.Parameters()
     public void signUp() {
         HomePage homePage = new HomePage(driver);
         SignUp signUp = homePage.clickSignUp();
-        assertEquals("Register", signUp.getH1());
+        assertEquals(ReadProperties.getProperty("signUp"), signUp.getH1());
+    }
+
+    @Test
+    public void signIn() {
+        HomePage homePage = new HomePage(driver);
+        SignIn signIn = homePage.clickSignIn();
+        assertEquals(ReadProperties.getProperty("signIn"), signIn.h1());
+        signIn.inputUser(ReadProperties.getProperty("email"), ReadProperties.getProperty("password"));
+        assertEquals(ReadProperties.getProperty("email"), signIn.inputSuccessfully());
     }
 
 }

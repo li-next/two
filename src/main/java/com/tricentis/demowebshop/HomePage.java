@@ -22,8 +22,16 @@ public class HomePage {
     @FindBy(xpath = "//a[@class='ico-register']")
     private WebElement signUpLocated;
 
+    @FindBy(xpath = "//a[@class='ico-login']")
+    private WebElement signInLocated;
+
     public SignUp clickSignUp() {
         signUpLocated.click();
         return new SignUp(driver);
+    }
+
+    public SignIn clickSignIn() {
+        signInLocated.click();
+        return  new SignIn(driver);
     }
 }

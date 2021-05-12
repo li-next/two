@@ -2,10 +2,14 @@ package com.tricentis.demowebshop;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class Base {
@@ -18,8 +22,15 @@ public class Base {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.get("http://demowebshop.tricentis.com/");
+        driver.get(ReadProperties.getProperty("siteUrl"));
+
     }
+    /*@Before
+    public static String getDataProperties (String param) throws Exception {
+        Properties props=new Properties();
+        props.load(new InputStreamReader(new FileInputStream("system.properties"), "UTF-8"));
+        return props.getProperty(param);
+    }*/
 
 
     @AfterClass
