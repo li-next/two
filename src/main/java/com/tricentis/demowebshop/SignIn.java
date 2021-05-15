@@ -31,6 +31,12 @@ public class SignIn {
     @FindBy(xpath = "//div[@class='header-links']//a[@class='account']")
     private WebElement signInSuccessfully;
 
+    @FindBy(xpath = "//div[@class='validation-summary-errors']/span")
+    private WebElement signInErrSpan;
+
+    @FindBy(xpath = "//div[@class='validation-summary-errors']//li")
+    private WebElement signInErrLi;
+
 
     @FindBy(xpath = "//h1")
     private WebElement h1;
@@ -47,5 +53,11 @@ public class SignIn {
     }
     public String inputSuccessfully() {
         return signInSuccessfully.getText();
+    }
+    public String inputErrMsgSpan() {
+        return signInErrSpan.getText();
+    }
+    public String inputErrMsgLi() {
+        return signInErrLi.getText();
     }
 }

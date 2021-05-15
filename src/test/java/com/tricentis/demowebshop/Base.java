@@ -15,6 +15,12 @@ import java.util.concurrent.TimeUnit;
 public class Base {
 
     protected static WebDriver driver;
+    protected HomePage homePage;
+    protected SignIn signIn;
+    protected SignUp signUp;
+    protected MakeOrder makeOrder;
+    protected Card card;
+    protected OnePageCheckout onePageCheckout;
 
     @BeforeClass
     public static void start() {
@@ -25,12 +31,7 @@ public class Base {
         driver.get(ReadProperties.getProperty("siteUrl"));
 
     }
-    /*@Before
-    public static String getDataProperties (String param) throws Exception {
-        Properties props=new Properties();
-        props.load(new InputStreamReader(new FileInputStream("system.properties"), "UTF-8"));
-        return props.getProperty(param);
-    }*/
+
 
 
     @AfterClass

@@ -25,6 +25,9 @@ public class HomePage {
     @FindBy(xpath = "//a[@class='ico-login']")
     private WebElement signInLocated;
 
+    @FindBy(xpath = "//div[@class='listbox']//a[@href='/apparel-shoes']")
+    private WebElement apparelShoes;
+
     public SignUp clickSignUp() {
         signUpLocated.click();
         return new SignUp(driver);
@@ -34,4 +37,11 @@ public class HomePage {
         signInLocated.click();
         return  new SignIn(driver);
     }
+
+    public MakeOrder clickApparelShoes() {
+        apparelShoes.click();
+        return new MakeOrder(driver);
+    }
+
+
 }
